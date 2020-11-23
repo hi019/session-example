@@ -71,6 +71,8 @@ func main() {
 		}
 
 		// Hash password
+		// You may want to use argon2 here. For convenience I am using bcrypt.
+		// While bcrypt has not been broken yet, argon2 is considered more future-proof.
 		hash, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 		if err != nil {
 			return err

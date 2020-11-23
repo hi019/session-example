@@ -1,0 +1,15 @@
+datasource db {
+    provider = "sqlite"
+    url = "***"
+    output   = "prisma-gen"
+}
+
+generator db {
+    provider = "go run github.com/prisma/prisma-client-go"
+}
+
+model User {
+    id       String @id @default(cuid())
+    username String @unique
+    password String
+}
